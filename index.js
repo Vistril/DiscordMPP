@@ -332,7 +332,7 @@ const op = [
 	'63ce4e6b86780ae23e04a5b8',
 	'9f9caf0d1638e0064b670d8e',
 ];
-const cmdChar = '/';
+const cmdChar = '>';
 const jserr = 'Inaccessible';
 MPP.client.on('a', msg => {
 	let isAdmin = false;
