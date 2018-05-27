@@ -436,7 +436,7 @@ bot.on('ready', () => {
 		if (msg.p._id == MPP.client.getOwnParticipant()._id) return;
 		if (msg.a.includes('@everyone')) return;
 		dChat(
-			'420749854776623104',
+			'450147357208870924',
 			`**${msg.p.name.split('').join('\u034f')}** (\`${msg.p._id.substring(
 				0,
 				4
@@ -484,12 +484,6 @@ bot.on('ready', () => {
 				MPP.client.sendArray([
 					{
 						m: 'a',
-						message: message.author.tag + '🡳',
-					},
-				]);
-				MPP.client.sendArray([
-					{
-						m: 'a',
 						message: message.content,
 					},
 				]);
@@ -497,7 +491,7 @@ bot.on('ready', () => {
 				MPP.client.sendArray([
 					{
 						m: 'a',
-						message: `${message.author.tag}: ${message.content}`,
+						message: `${message.author.username}: ${message.content}`,
 					},
 				]);
 			}
@@ -535,7 +529,7 @@ bot.on('ready', () => {
 count = 0;
 function name() {
 	names = {
-		0: `${botname} [discord.io/anon64]`,
+		0: `${botname} [discord.gg/AastTwg]`,
 		1: `Uptime: ${sectoform(Math.round(Date.now() / 1000) - start)}`,
 		2: `${botname} [${cmdChar}help]`,
 	};
