@@ -529,7 +529,7 @@ bot.on('ready', () => {
 count = 0;
 function name() {
 	names = {
-		0: `${botname} [discord.gg/AastTwg]`,
+		0: `${botname} [discord.io/anon64]`,
 		1: `Uptime: ${sectoform(Math.round(Date.now() / 1000) - start)}`,
 		2: `${botname} [${cmdChar}help]`,
 	};
