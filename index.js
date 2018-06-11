@@ -155,8 +155,8 @@ const updateInt = setInterval(() => {
 		{
 			m: 'm',
 			x: (MPP.client.getOwnParticipant().x = pos.x),
-			y: (MPP.client.getOwnParticipant().y = pos.y),
-		},
+			y: (MPP.client.getOwnParticipant().y = pos.y)
+		}
 	]);
 }, 15);
 
@@ -321,16 +321,16 @@ function name(name) {
 		{
 			m: 'userset',
 			set: {
-				name,
-			},
-		},
+				name
+			}
+		}
 	]);
 }
 const op = [
 	'6CC6A3910D86F9739F57',
 	'd55bf273f64f37c5691f3bbb',
 	'63ce4e6b86780ae23e04a5b8',
-	'9f9caf0d1638e0064b670d8e',
+	'9f9caf0d1638e0064b670d8e'
 ];
 const cmdChar = '>';
 const jserr = 'Inaccessible';
@@ -395,8 +395,9 @@ MPP.client.on('a', msg => {
 		try {
 			if (!isAdmin) {
 				sendChat(
-					`Prevents bot from following players. You are not admin (${wot.p
-						.name})`
+					`Prevents bot from following players. You are not admin (${
+						wot.p.name
+					})`
 				);
 				return;
 			}
@@ -427,20 +428,28 @@ MPP.client.on('a', msg => {
 //DISCORD!!!!
 bot.on('ready', () => {
 	console.log(
-		`Bot has started, with ${bot.users.size} users, in ${bot.channels
-			.size} channels of ${bot.guilds.size} guilds.`
+		`Bot has started, with ${bot.users.size} users, in ${
+			bot.channels.size
+		} channels of ${bot.guilds.size} guilds.`
 	);
 	//sendChat(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`, lang)
+	const linkRegex = /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 	bot.user.setGame(`on ${bot.guilds.size} servers`);
 	MPP.client.on('a', msg => {
 		if (msg.p._id == MPP.client.getOwnParticipant()._id) return;
 		if (msg.a.includes('@everyone')) return;
 		dChat(
-			'450147357208870924',
-			`**${msg.p.name.split('').join('\u034f')}** (\`${msg.p._id.substring(
-				0,
-				4
-			)}\`): ${msg.a}`
+			'455848793598984202',
+			`**${msg.p.name
+				.split('')
+				.join('\u034f')
+				.replace(
+					new RegExp(linkRegex, 'g'),
+					'[Link Deleted]'
+				)}** (\`${msg.p._id.substring(0, 4)}\`): ${msg.a.replace(
+				new RegExp(linkRegex, 'g'),
+				'[Link Deleted]'
+			)}`
 		);
 	});
 });
@@ -450,7 +459,7 @@ bot.on('ready', () => {
 		'251985222915194881',
 		'210605340201451521',
 		'209015289990348800',
-		'362315641161515008',
+		'362315641161515008'
 	];
 	bot.on('message', message => {
 		function cdChat(msg) {
@@ -468,8 +477,7 @@ bot.on('ready', () => {
 		}
 
 		if (message.author.bot) return;
-
-		if (message.channel.id == '450147357208870924') {
+		if (message.channel.id == '455848793598984202') {
 			if (!MPP.client.isConnected()) return;
 			if (
 				message.content.startsWith('.') ||
@@ -484,15 +492,15 @@ bot.on('ready', () => {
 				MPP.client.sendArray([
 					{
 						m: 'a',
-						message: message.content,
-					},
+						message: message.content
+					}
 				]);
 			} else {
 				MPP.client.sendArray([
 					{
 						m: 'a',
-						message: `${message.author.username}: ${message.content}`,
-					},
+						message: `${message.author.username}: ${message.content}`
+					}
 				]);
 			}
 		}
@@ -501,7 +509,10 @@ bot.on('ready', () => {
 
 		const user = message.author;
 
-		const args = message.content.slice(cmdChar.length).trim().split(/ +/g);
+		const args = message.content
+			.slice(cmdChar.length)
+			.trim()
+			.split(/ +/g);
 
 		const command = args.shift().toLowerCase();
 
@@ -531,15 +542,15 @@ function name() {
 	names = {
 		0: `${botname} [discord.io/anon64]`,
 		1: `Uptime: ${sectoform(Math.round(Date.now() / 1000) - start)}`,
-		2: `${botname} [${cmdChar}help]`,
+		2: `${botname} [${cmdChar}help]`
 	};
 	MPP.client.sendArray([
 		{
 			m: 'userset',
 			set: {
-				name: names[count++],
-			},
-		},
+				name: names[count++]
+			}
+		}
 	]);
 	if (count >= Object.keys(names).length) count = 0;
 }
